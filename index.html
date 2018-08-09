@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AJAX practice</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/public/style.css" />
+    <title>Pets | CRUD AJAX practice</title>
 </head>
+
 <body>
-    <p> AJAX </p>
+    <header>
+        <h1> 🐶 AJAX Pets 🐱‍👤</h1>
+    </header>
+    <main>
+        <aside>
+            <h2> Controls </h2>
+            <form id="searchForm">
+                <input type="text" placeholder="Search by name"/>
+                <button type="submit" class="btn">Search</button>
+            </form>
+            
+            <form id="addForm">
+                <input type="text" placeholder="Pet name" required/>
+                <input type="text" placeholder="Img source"/>
+                <select required>
+                    <option value="cat">Cat</option>
+                    <option value="dog">Dog</option>
+                </select>
+                <button type="submit" class="btn">Create Pet</button>
+            </form>
+            <button type="button" class="btn" disabled id="loginBtn">Login</button>
+        </aside>
+        <div class="pets-container">
+            <div class="pet pet--dog">
+                <img width = "64" src="/public/images/404.jpg" />
+                <h1> Bob </h1>
+                <p class="age"> 15 days old </p>
+                <button type="button" class="btn delete-btn">Delete</button>
+            </div>
+            <div class="pet pet--cat">
+                <img width = "64" src="/public/images/404.jpg" />
+                <h1> Lilly </h1>
+                <p class="age"> 30 days old </p>
+                <button type="button" class="btn delete-btn">Delete</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span> Made with ❤ by
+            <a href="https://iampava.com" class="link">Pava</a>
+        </span>
+        <div class="blue-bar"></div>
+    </footer>
+    <script type="text/javascript" src="/public/javascript/app.js"></script>
 </body>
+
 </html>

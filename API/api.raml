@@ -45,3 +45,11 @@ version: v1
             responses:
                 200:
                 404:
+/login:
+    post:
+        description: Authenticate user
+        responses:
+            200:
+                headers:
+                    token:
+                        description: Authentication token
