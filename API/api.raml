@@ -1,0 +1,47 @@
+#%RAML 1.0
+title: practice-ajax
+version: v1
+
+/pets:
+    /:
+        get:
+            description: Get all pets
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/GET_pets.json
+        post:
+            description: Add a new pet
+            body:
+                application/json:
+                    example:  !include examples/POST_pets-req.json
+            responses:
+                200: 
+                    body:
+                        application/json:
+                            example: !include examples/POST_pets-res.json
+    /{id}:
+        get:
+            description: Get info about a certain pet
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/GET_pet.json
+                404:
+        put:
+            description: Update all info about a pet
+            body:
+                application/json:
+                    example:  !include examples/PUT_pet-req.json
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/PUT_pet-res.json
+        delete:
+            description: Delete a pet
+            responses:
+                200:
+                404:
