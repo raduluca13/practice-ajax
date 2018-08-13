@@ -78,24 +78,41 @@ On the Front-end part I already created two JavaScript files: an **app.js** whic
 
 I wrote those to help you with the implementation so take a good look at them before you start coding.
 
-## <p id="installation">How to install and use</p>
+## <p id="installation">How to...</p>
 
+### Install
 To install this app just go into the cloned-repo folder and run:
 
 ```
 $ npm install
 ```
 
-Now, to start the server in the default mode run: 
+### Run
+To start the server in the default mode run: 
 ```
 npm run serve
 ```
 and then navigate to [localhost:8080](http://localhost:8080).  
 <br/>
-If you want to enable the *dummy* Authentication, then run:
+If you also want to enable the *dummy* Authentication, then run:
 ```
 npm run serve-with-auth
 ```
+then navigate to the same URL.
+
+### Documentation
+
+I've documented the API in [RAML](https://raml.org/) format. In order to read it you will need to first convert it to an HTML page.
+
+```
+npm run raml
+```
+Then open the **api.html** file found in the API folder. You should see something like this:
+
+
+<p  align='center'>
+<img  height=250  src="https://raw.githubusercontent.com/iampava/practice-ajax/master/public/images/raml.png" />
+</p>
 
 ## Good luck! 🥂
 <p align="center">
