@@ -11,6 +11,10 @@ version: v1
                     type: string
                     required: false
                     description: A pet's name
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
             responses:
                 200:
                     description: The list of pets whose names start with the query param or the entire list if no query param is passed.
@@ -21,6 +25,10 @@ version: v1
                     description: Not authenticated  - only if you're running the server in the "auth" mode
         post:
             description: Create a new pet
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
             body:
                 application/json:
                     example:  !include examples/POST_pets-req.json
@@ -34,6 +42,10 @@ version: v1
     /{id}:
         get:
             description: Get info about a certain pet
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
             responses:
                 200:
                     body:
@@ -45,6 +57,10 @@ version: v1
                     description: No pet exists with that id
         put:
             description: Update a pet's info
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
             body:
                 application/json:
                     example:  !include examples/PUT_pet-req.json
@@ -59,6 +75,10 @@ version: v1
                     description: No pet exists with that id
         delete:
             description: Delete a pet
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
             responses:
                 200:
                     description: Pet succesfully deleted
