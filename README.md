@@ -1,13 +1,11 @@
 # practice-ajax
 
 Practice AJAX by integrating the Front-end of this app with the already existing NodeJS API.
-
+<br/>
 <p  align='center'>
-
 <img  height=250  src="https://raw.githubusercontent.com/iampava/practice-ajax/master/public/images/screenshot.png" />
-
 </p>
-
+<br/>
 Although the app in itself is nothing fancy, it's good exercise because you will have to integrate:
 
 -   Get
