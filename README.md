@@ -38,7 +38,6 @@ You can think of this app as a pet-management tool. The only thing missing from 
 
 -   **delete** an existing pet
 
-Here's a video of the finished result:
 
 ### API
 
@@ -54,15 +53,15 @@ I wrote those to help you with the implementation so take a good look at them be
 
 This app does not have real authentication. But, because this is a pretty important and common topic, I added a **dummy authentication** (see the login & logout buttons from the screenshot). 
 
-When calling the right **login** API the server will return, through the Headers, an authentication **token**. You will have to pass that to every request, otherwise you will get a **401 - Unauthorized" error.
+When calling the right **login API** the server will return, through the Headers, an **authentication token**. You will have to pass that to every request, otherwise you will get a **401 - Unauthorized** error.
 
-⚠ By default this dummy authentication is disabled so you can first focus on calling the right API's and handling the responses correctly. If you've done that and want to go to the "next level", see the [run](#run) section for how to do that.
+⚠ By default this dummy authentication is disabled so you can first focus on calling the right API's and handling the responses correctly. If you've done that and want to go to the *next level*, see the [run](#run) section for how to do that.
 
 ## <p id="installation">How to...</p>
 
 ### Install
 
-To install this app just go into the cloned-repo folder and run:
+To start this practice-project I recommend [forking](https://help.github.com/articles/fork-a-repo/) this repo so you push your own code. Once you've done that, clone the repo and run:
 
 ```
 $ npm install
@@ -86,7 +85,7 @@ If you also want to enable the _dummy_ Authentication, then run:
 $ npm run serve-with-auth
 ```
 
-then navigate to the same URL.
+then navigate to the same URL. Now, if you're not passing the token to the server, you'll get a 401 response.
 
 ### <p id="raml">RAML Documentation</p>
 

@@ -45,6 +45,11 @@ select {
     max-width: 100%;
 }
 
+*[contentEditable="true"] {
+    border: 1px solid #bcc2c6;
+    padding: 0 .5em;
+}
+
 /******/
 
 header {

@@ -1,5 +1,5 @@
 const PORT = 8080;
-const enableAuth = process.argv[2] ? true : false;
+const enableAuth = process.argv[2]  === "--auth" ? true : false;
 let token = null;
 
 let path = require('path');
@@ -11,7 +11,11 @@ let app = express();
 app.use(bodyParser.json());
 
 app.listen(PORT, () => {
-    console.log('\x1b[32m', `Listening on ${PORT}`);
+    if(enableAuth) {
+        console.log('\x1b[32m', `Server with dummy auth are listening on ${PORT}`);        
+    } else {
+        console.log('\x1b[32m', `Listening on ${PORT}`);
+    }
 });
 
 app.use('/public', express.static(path.join(__dirname, '/public')));
