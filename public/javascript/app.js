@@ -1,33 +1,39 @@
-function createPetCard(petInfo) {
-    let card = document.createElement("div");
-    card.classList.add("pet", `pet--${petInfo.type}`);
+(function initIIFE() {
+    let petsContainer = document.getElementById("petsContainer");
+    
+    petsContainer.addEventListener("click", function onClick(e) {
+        if(e.target.tagName === "BUTTON") {
+            switch(e.target.dataset.type) {
+                case "edit":
+                    swal({
+                        title: "Edit pet", 
+                        html: createPetCard({
+                            name: "Bob",
+                            type: "cat",
+                            created: Date.now()
+                        }, true),  
+                        confirmButtonText: "Save",
+                        showCancelButton: true,
+                        cancelButtonText: "Cancel",
+                        width: "50%" 
+                    });
+                    break;
+                case "delete":
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
 
-    let img = document.createElement("img");
-    img.width = 64;
-    img.src = petInfo.img || '/public/images/404.jpg';
-
-    let nameEl = document.createElement("h1");
-    nameEl.innerText = petInfo.name;
-
-    let ageEl = document.createElement("p");
-    ageEl.classList.add("age");
-    ageEl.innerText = getAge(petInfo.created);
-
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("btn", "delete-btn");
-    deleteBtn.innerText = "Delete";
-
-    card.appendChild(img);
-    card.appendChild(nameEl);
-    card.appendChild(ageEl);
-    card.appendChild(deleteBtn);
-
-    return card;
-}
-
-function getAge(timestamp) {
-    let age = Date.now() - timestamp;
-    let days = Math.floor(age / (1000 * 60 * 60 * 24));
-
-    return `${days} days old`;
-}
+    petsContainer.appendChild(createPetCard({
+        name: "Dummy 1",
+        type: "cat",
+        created: Date.now()
+    }));
+    petsContainer.appendChild(createPetCard({
+        name: "Dummy 2",
+        type: "dog",
+        created: Date.now()
+    }));
+}());

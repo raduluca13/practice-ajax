@@ -6,6 +6,47 @@ body {
     font-family: 'Comfortaa', cursive;
 }
 
+/** MINIS */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.link {
+    border-bottom: 1px solid #bcc2c6;
+}
+
+a.link:hover {
+    border-color: #1b1b1b;
+}
+
+.btn {
+    padding: .5em;
+    color: #000;
+    background: #fff;
+    border: 1px solid #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform .1s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    font-size: 16px;
+    padding: .5em;
+    border: 1px solid #bcc2c6;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/******/
+
 header {
     font-size: 36px;
     text-align: center;
@@ -21,10 +62,12 @@ main {
     width: 75%;
     max-width: 1000px;
     position: relative;
-    min-height: calc(100% - 230px);
+    min-height: calc(100% - 228px);
     margin: 4em auto 1em auto;
     font-size: 0;
 }
+
+/** CONTROLS */
 
 aside {
     font-size: 16px;
@@ -32,6 +75,7 @@ aside {
     height: 100%;
     border-right: 2px solid #f7df1e;
     padding-right: 2em;
+    margin-bottom: 1em;
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
@@ -44,12 +88,30 @@ form {
     margin: 1em 0 2em 0;
 }
 
+form:first-of-type {
+    margin-top: 0;
+}
+
 form input {
     margin-bottom: 1em;
 }
 
+#createForm button[type="submit"] {
+    float: right;
+}
 
-.pets-container {
+#loginBtn,
+#logoutBtn {
+    width: 40%;
+}
+
+#logoutBtn {
+    float: right;
+}
+
+/** PETS CONTAINER */
+
+#petsContainer {
     font-size: 16px;
     display: inline-block;
     vertical-align: top;
@@ -64,13 +126,7 @@ form input {
     position: relative;
     padding-left: 20px;
     margin: 0 0 1em 0;
-}
-
-.pet.pet--dog:before {
-    background-color: #3aa3e9;
-}
-.pet.pet--cat:before {
-    background-color: #f7df1e;
+    text-align: left;
 }
 
 .pet:before {
@@ -82,69 +138,59 @@ form input {
     width: 20px;
 }
 
+.pet.pet--dog:before {
+    background-color: #3aa3e9;
+}
+
+.pet.pet--cat:before {
+    background-color: #f7df1e;
+}
+
 .pet h1 {
     display: inline-block;
     margin: 0 0 0 1em;
     vertical-align: middle;
 }
+
 .pet img {
     vertical-align: middle;
 }
+
 .pet .age {
     position: absolute;
-    right: 5em;
+    right: 10em;
     bottom: 0;
     margin: 0 .5em .5em 0;
     color: #bcc2c6;
 }
-.pet .delete-btn {
+
+.pet .age:after {
+    content: ' days ago';
+}
+
+.pet .btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    right: 5em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 3px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+.pet .edit-btn {
+    right: 5em;
+    border: 1px solid #3aa3e9;
 }
 
-a.link {
-    border-bottom: 1px solid #bcc2c6;
+.pet .delete-btn {
+    right: .5em;
+    border: 1px solid #c0392b;
 }
 
-a.link:hover {
-    border-color: #1b1b1b;
+.pet .btn:hover {
+    transform: translateY(-50%) scale(1.1);
 }
 
-.blue-bar {
-    height: 6px;
-    background-image: linear-gradient(to right, #2980b9 0%, #3aa3e9 51%, #2980b9 100%);
-}
-
-input[type="text"],
-input[type="password"],
-select {
-    font-size: 16px;
-    padding: .5em;
-    border: 1px solid #bcc2c6;
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-.btn {
-    padding: .5em;
-    border: none;
-    color: color(white);
-    background-color: color(black);
-    font-size: 16px;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-#loginBtn {
-    width: 100%;
-}
+/** FOOTER */
 
 footer {
     position: static;
@@ -159,6 +205,7 @@ footer span {
     padding: 0.5em 0;
 }
 
-footer span a.link {
-    border-color: color(black);
+footer .blue-bar {
+    height: 6px;
+    background-image: linear-gradient(to right, #2980b9 0%, #3aa3e9 51%, #2980b9 100%);
 }

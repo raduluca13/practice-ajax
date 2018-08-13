@@ -1,4 +1,5 @@
 const PORT = 8080;
+const enableAuth = process.argv[2] ? true : false;
 let token = null;
 
 let path = require('path');
@@ -75,14 +76,21 @@ app.delete('/pets/:id', (req, res) => {
 app.post('/login', (req, res) => {
     token = Buffer.from(Date.now().toString()).toString('base64');
     res.header("token", token).status(200).send();
-})
+});
+
+app.post('/logout', (req, res) => {
+    token = null;
+    res.status(200).send();
+});
 
 function isAuth(req, res) {
-    return true;
+    if (!enableAuth) {
+        return true;
+    }
 
-    // if (req.header("token") !== token ) {
-    //     res.status(401).send();
-    //     return false;
-    // }
-    // return true;
+    if (token === null || req.header("token") !== token ) {
+        res.status(401).send();
+        return false;
+    }
+    return true;
 }

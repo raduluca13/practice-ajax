@@ -16,37 +16,22 @@
     </header>
     <main>
         <aside>
-            <h2> Controls </h2>
             <form id="searchForm">
-                <input type="text" placeholder="Search by name"/>
+                <input type="text" placeholder="Search by name" name="nameInput" />
                 <button type="submit" class="btn">Search</button>
             </form>
-            
-            <form id="addForm">
-                <input type="text" placeholder="Pet name" required/>
-                <input type="text" placeholder="Img source"/>
-                <select required>
+            <form id="createForm">
+                <input type="text" placeholder="Pet name" required name="nameInput" />
+                <select name="typeInput">
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
                 </select>
                 <button type="submit" class="btn">Create Pet</button>
             </form>
-            <button type="button" class="btn" disabled id="loginBtn">Login</button>
+            <button type="button" class="btn" id="loginBtn">Login</button>
+            <button type="button" class="btn" id="logoutBtn">Logout</button>
         </aside>
-        <div class="pets-container">
-            <div class="pet pet--dog">
-                <img width = "64" src="/public/images/404.jpg" />
-                <h1> Bob </h1>
-                <p class="age"> 15 days old </p>
-                <button type="button" class="btn delete-btn">Delete</button>
-            </div>
-            <div class="pet pet--cat">
-                <img width = "64" src="/public/images/404.jpg" />
-                <h1> Lilly </h1>
-                <p class="age"> 30 days old </p>
-                <button type="button" class="btn delete-btn">Delete</button>
-            </div>
-        </div>
+        <div id="petsContainer"></div>
     </main>
 
     <footer>
@@ -55,7 +40,9 @@
         </span>
         <div class="blue-bar"></div>
     </footer>
-    <script type="text/javascript" src="/public/javascript/app.js"></script>
+    <script src="/public/javascript/utils.js"></script>
+    <script src="/public/javascript/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

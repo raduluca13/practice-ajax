@@ -2,6 +2,7 @@
     "name": "ajax-practice",
     "scripts": {
         "serve": "nodemon server.js",
+        "serve-with-auth": "nodemon server.js --auth=true",
         "raml": "raml2html API/api.raml > API/api.html"
     },
     "dependencies": {
