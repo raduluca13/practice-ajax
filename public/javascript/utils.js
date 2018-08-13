@@ -8,7 +8,7 @@ function createPetCard({name, type, created}, isEditable = false) {
 
     let img = document.createElement("img");
     img.width = 64;
-    img.src = `/public/images/${type}.jpg`;
+    img.src = `public/images/${type}.jpg`;
     img.alt = `${type} image`;
 
     let nameEl = document.createElement("h1");
