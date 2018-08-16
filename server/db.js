@@ -25,8 +25,17 @@ class DB {
                     // 404
                     throw (404);
                 }
-                return writePets(pets).then()
+                return writePets(pets);
             })
+    }
+
+    deletePets(petIds) {
+        return readPets()
+            .then(pets => pets.filter(pet => !petIds.includes(pet.id)))
+            .then(pets => writePets(pets))
+            .catch(err => {
+                throw 400;
+            });
     }
 
     getAllPets() {

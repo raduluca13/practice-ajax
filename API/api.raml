@@ -39,6 +39,20 @@ version: v1
                             example: !include examples/POST_pets-res.json
                 401:
                     description: Not authenticated  - only if you're running the server in the "auth" mode
+        delete:
+            description: Batch delete of pets
+            headers:
+                token:
+                    required: false
+                    description: Authentication token that the server provided. - only if you're running the server in the "auth" mode
+            body:
+                application/json:
+                    example:  !include examples/DELETE_pets-req.json
+            responses:
+                200: 
+                401:
+                    description: Not authenticated  - only if you're running the server in the "auth" mode
+            
     /{id}:
         get:
             description: Get info about a certain pet
