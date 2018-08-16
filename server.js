@@ -46,7 +46,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/pets', (req, res) => {
-    if (req.query.name) {
+    if (req.query.pageNo) {
+        db.getPetsPaginated(Number(req.query.pageNo), Number(req.query.pageSize), req.query.name).then(resp => res.json(resp));
+        return;
+    } else if (req.query.name) {
         db.getPetsByName(req.query.name).then(resp => res.json(resp));
         return;
     }

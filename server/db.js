@@ -48,6 +48,14 @@ class DB {
         })
     }
 
+    getPetsPaginated(pageNo, pageSize = 5, name) {
+        return readPets()
+            .then(pets => pets.filter(pet => name === undefined || pet.name.toUpperCase().indexOf(name.toUpperCase()) === 0))
+            .then(pets => {
+                return pets.slice(pageNo * pageSize, (pageNo + 1) * pageSize);
+            });
+    }
+
     getPet(petId) {
         return readPets().then(pets => {
             let pet = pets.find(pet => pet.id === petId);
