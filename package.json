@@ -3,6 +3,7 @@
     "scripts": {
         "serve": "nodemon server.js",
         "serve-with-auth": "nodemon server.js --auth",
+        "serve-with-cors": "nodemon server.js --cors",
         "raml": "raml2html API/api.raml > API/api.html"
     },
     "dependencies": {
