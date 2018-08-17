@@ -1,10 +1,10 @@
 {
     "name": "ajax-practice",
     "scripts": {
+        "raml": "raml2html API/api.raml > API/api.html",
         "serve": "nodemon server.js",
         "serve-with-auth": "nodemon server.js --auth",
-        "serve-with-cors": "nodemon server.js --cors",
-        "raml": "raml2html API/api.raml > API/api.html"
+        "serve-with-cors": "nodemon server.js --cors"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
