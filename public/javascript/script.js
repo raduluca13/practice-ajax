@@ -106,13 +106,13 @@ function ajax(method, url, payload){
         request.send();
     }
     else if(method === 'POST'){
+        request.setRequestHeader('content-type', 'application/json');
         request.addEventListener('load', e => {
             switch (request.status) {
                 case 200:
                 console.log('response: ', request.response);
                     let pet = JSON.parse(request.response);
                     console.log(pet);
-                    break;
                     /* response
                     {e.name, e.type, e.id, e.created}
                     */
