@@ -78,18 +78,19 @@
                     
                     break;
                 case 'delete':
-                    if(event.target.parentElement.id === undefined) event.target.parentElement.remove();
+                    if(event.target.parentElement.dataset.id === undefined) event.target.parentElement.remove();
                     if (!(event.target.id === undefined)) {
                         PetService.deletePet(
                             event.target.id,
                             function succes(response) {
                                 console.log(response);
-                                event.target.parentElement.remove();
+                                // event.target.parentElement.remove();
                             },
                             function error(type) {
                                 if (type === 'error') {
                                     console.log('networking error');
-                                } else console.log(`Server responded with status ${type}`);
+                                }
+                                else console.log(`Server responded with status ${type}`);
                             }
                         );
                     }
@@ -106,14 +107,14 @@
 
     let nameInput = createForm.nameInput.value;
     let typeInput = createForm.typeInput.value;
-    let newPet = JSON.stringify({ name: nameInput, type: typeInput });
+    let newPet = {name: nameInput, type: typeInput};
     
     PetService.addPet(
         newPet,
         pet => {
-            let divContainer = document.getElementById('petsContainer');
+            // let divContainer = document.getElementById('petsContainer');
             let card = createPetCard(pet);
-            divContainer.appendChild(card);
+            petsContainer.appendChild(card);
         },
         type => {
             if (type === 'error') {
@@ -162,14 +163,13 @@
         logoutBtn.setAttribute('disabled', true);
 
         AuthService.login(
-            (response, header) => {
+            response => {
                 alert(`${response} logged in`);
                 logoutBtn.removeAttribute('disabled');
             },
             type => {
-                console.log(`Server responded with ${type} status`);
+                alert(`Server responded with ${type} status`);
                 loginBtn.removeAttribute('disabled');
-                // logoutBtn.setAttribute('disabled', false);
             }
         );
         

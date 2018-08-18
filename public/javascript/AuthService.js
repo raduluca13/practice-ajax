@@ -7,7 +7,7 @@ class AuthService {
                 'content-type': 'application/json',
             },
             (response, headers)=>{
-                localStorage.setItem('firstItem', headers['token']);
+                localStorage.setItem('firstUser', headers['token']);
                 successCb();
             },
             errorCb
@@ -21,10 +21,10 @@ class AuthService {
             '/logout',
             { 
                 'content-type': 'application/json',
-                'token' : localStorage.getItem('firstItem')
+                'token' : localStorage.getItem('firstUser')
             },
             (response, headers)=>{
-                localStorage.removeItem('firstItem');
+                localStorage.removeItem('firstUser');
                 successCb();
             },
             errorCb

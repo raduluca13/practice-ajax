@@ -52,6 +52,7 @@ class HTTP {
 
         console.log('HTTP payload: ', payload);
         if (payload !== undefined) {
+            payload = JSON.stringify(payload);
             xhr.send(payload);
         } else {
             xhr.send();

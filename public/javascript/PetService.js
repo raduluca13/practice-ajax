@@ -13,7 +13,7 @@ class PetService {
                 'GET',
                 `/pets/${id}`,
                 { 
-                    'token': localStorage.getItem('FirstUser') 
+                    'token': localStorage.getItem('firstUser') 
                 },
                 successCb,
                 errorCb
@@ -30,12 +30,12 @@ class PetService {
             'POST',
             `/pets`,
             {
-                'token': localStorage.getItem('FirstUser'),
+                'token': localStorage.getItem('firstUser'),
                 'content-type': 'application/json'
             },
             successCb,
             errorCb,
-            JSON.stringify(payload)
+            payload
         );
     }
 
@@ -44,7 +44,7 @@ class PetService {
             'POST',
             `/pets/${payload}`,
             {
-                'token': localStorage.getItem('FirstUser'),
+                'token': localStorage.getItem('firstUser'),
                 'content-type': 'application/json'
             },
             successCb,
@@ -58,7 +58,7 @@ class PetService {
             'DELETE',
             `/pets`,
             {
-                'token': localStorage.getItem('FirstUser'),
+                'token': localStorage.getItem('firstUser'),
                 'content-type': 'application/json'
             },
             successCb,
@@ -71,7 +71,7 @@ class PetService {
             'DELETE',
             `/pets/${id}`,
             {
-                'token': localStorage.getItem('FirstUser'),
+                'token': localStorage.getItem('firstUser'),
                 'content-type': 'application/json'
             },
             successCb,
