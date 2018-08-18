@@ -9,10 +9,11 @@ class AuthService {
             switch(request.status){
                 case 200:
                     // console.log(request);
-                    successCb();
+                    localStorage.setItem('FirstUser', JSON.stringify(request.getResponseHeader('token')));
+                    successCb('success');
                     break;
                 case 401:
-                    errorCb(request.getResponseHeader('token'));
+                    errorCb(401);
                     break;
             }
         });
@@ -23,16 +24,19 @@ class AuthService {
         request.send();
     }
 
-    static logout(successCb, errorCb){
+    static logout(successCb, errorCb, token){
         let request = new XMLHttpRequest();
        
-            request.open('GET', `/pets/?name=${name}`);
+        request.open('POST', `/logout`);
         
         request.setRequestHeader('content-type', 'application/json');
+        request.setRequestHeader('token', JSON.parse(localStorage.getItem('FirstUser')));
         request.addEventListener('load', event => {
             switch(request.status){
                 case 200:
-                    successCb(JSON.parse(request.response));
+                    console.log('resp: ', request.response);
+                    localStorage.removeItem('FirstUser');
+                    successCb(request.response);
                     break;
                 case 401:
                     errorCb(401);

@@ -85,8 +85,18 @@ let loginBtn = document.getElementById('loginBtn');
 loginBtn.addEventListener('click', event => {
     AuthService.login(
         response => {
-            console.log(response);
+            alert(`${response} logged in`);
         },
         response => console.log(`Server responded with ${response} status`)
+    );
+});
+let logoutBtn = document.getElementById('logoutBtn');
+logoutBtn.addEventListener('click', event => {
+    AuthService.logout(
+        response => {
+            alert(`${response} logged out`);
+        },
+        response => console.log(`Server responded with ${response} status`)
+        // JSON.parse(localStorage.getItem('FirstUser'))
     );
 });
