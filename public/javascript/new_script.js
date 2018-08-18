@@ -81,30 +81,12 @@ searchForm.addEventListener('input', event => {
     }, 500);
 });
 
-// EDIT + DELETE 
-// let petsContainer = document.getElementById('petsContainer');
-// petsContainer.addEventListener('click', event => {
-//     switch(event.target.dataset.type){
-//         case 'edit':
-//             console.log('editing');
-//         break;
-        
-//         case 'delete':
-//             if(event.target.parentElement.id === undefined) event.target.parentElement.remove();
-//             if (!(event.target.id === undefined)) {
-//                 PetService.deletePet(
-//                     event.target.id,
-//                     function succes(response) {
-//                         console.log(response);
-//                         event.target.parentElement.remove();
-//                     },
-//                     function error(type) {
-//                         if (type === 'error') {
-//                             console.log('networking error');
-//                         } else console.log(`Server responded with status ${type}`);
-//                     }
-//                 );
-//             }
-//         break;
-//     }
-// });
+let loginBtn = document.getElementById('loginBtn');
+loginBtn.addEventListener('click', event => {
+    AuthService.login(
+        response => {
+            console.log(response);
+        },
+        response => console.log(`Server responded with ${response} status`)
+    );
+});

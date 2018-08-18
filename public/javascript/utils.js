@@ -29,11 +29,13 @@ function createPetCard({ name, type, id, created }, isEditable = false) {
     editBtn.classList.add('btn', 'edit-btn');
     editBtn.setAttribute('data-type', 'edit');
     editBtn.setAttribute('id', id);
+    // editBtn.setAttribute('data-type', 'id');
     editBtn.innerText = 'Edit';
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add('btn', 'delete-btn');
     deleteBtn.setAttribute('data-type', 'delete');
+    // deteleBtn.setAttribute('data-type', 'id');
     deleteBtn.setAttribute('id', id);
     deleteBtn.innerText = 'Delete';
 

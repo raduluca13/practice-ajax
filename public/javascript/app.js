@@ -35,6 +35,8 @@
                                     payload,
                                     function success(response){
                                         //manipulate DOM
+                                        console.log(response);
+                                        debugger;
                                     },
                                     function error(type){
                                         console.log(`Server responded with type ${type}`);
